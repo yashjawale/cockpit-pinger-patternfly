@@ -7,6 +7,7 @@
 import React, { useEffect, useState } from 'react';
 import { Alert } from "@patternfly/react-core/dist/esm/components/Alert/index.js";
 import { Card, CardBody, CardTitle } from "@patternfly/react-core/dist/esm/components/Card/index.js";
+import { Page } from "@patternfly/react-core/dist/esm/components/Page/index.js";
 
 import cockpit from 'cockpit';
 
@@ -22,14 +23,16 @@ export const Application = () => {
     }, []);
 
     return (
-        <Card>
-            <CardTitle>Starter Kit</CardTitle>
-            <CardBody>
-                <Alert
-                    variant="info"
-                    title={ cockpit.format(_("Running on $0"), hostname) }
-                />
-            </CardBody>
-        </Card>
+        <Page className="pf-m-no-sidebar" isContentFilled>
+            <Card>
+                <CardTitle>Pinger Patternfly</CardTitle>
+                <CardBody>
+                    <Alert
+                        variant="info"
+                        title={ cockpit.format(_("Running on $0"), hostname) }
+                    />
+                </CardBody>
+            </Card>
+        </Page>
     );
 };
