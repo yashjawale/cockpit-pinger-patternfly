@@ -1,7 +1,23 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedSideEffectImports": false,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es2020"
+    ],
+    "paths": {
+        "*": ["./pkg/lib/*"]
+    },
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "strict": true,
+    "target": "es2020"
+  },
+  "include": [
+    "src/**/*"
   ]
 }
