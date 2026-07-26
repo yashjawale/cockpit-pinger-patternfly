@@ -9,6 +9,7 @@ import { Divider } from '@patternfly/react-core/dist/esm/components/Divider';
 import { CodeBlock, CodeBlockCode } from '@patternfly/react-core/dist/esm/components/CodeBlock';
 import { TextInput } from '@patternfly/react-core';
 import { Toolbar, ToolbarContent, ToolbarItem } from '@patternfly/react-core/dist/esm/components/Toolbar';
+import { GlobeIcon } from '@patternfly/react-icons/dist/esm/icons';
 
 const _ = cockpit.gettext;
 
@@ -22,40 +23,40 @@ export const Application = () => {
     };
 
     const startPing = () => {
-        setStatus('progress')
-        setLogs([])
+        setStatus('progress');
+        setLogs([]);
         cockpit.spawn(["ping", "-c", "4", host])
                 .stream((data) => {
                     setLogs(prev => [...prev, data]);
                 })
                 .then(() => {
-                    setStatus('success')
+                    setStatus('success');
                 })
                 .catch(() => {
-                    setStatus('fail')
-                })
+                    setStatus('fail');
+                });
     };
 
     const renderAlert = () => {
         switch (status) {
         case 'success':
-            return <Alert variant='success' title="Success! You can view more information below." />;
+            return <Alert variant='success' title={_('cockpit-pinger-patternfly', 'Success! You can view more information below.')} />;
         case 'fail':
-            return <Alert variant='danger' title="Ping failed. Check the logs below for more details." />;
+            return <Alert variant='danger' title={_('cockpit-pinger-patternfly', 'Ping failed. Check the logs below for more details.')} />;
         case 'progress':
-            return <Alert variant='custom' title="Pinging..." />;
+            return <Alert customIcon={<GlobeIcon />} variant='custom' title={_('cockpit-pinger-patternfly', 'Pinging...')} />;
         default:
-            return <Alert variant='info' title="Start a ping to check connectivity" />;
+            return <Alert variant='info' title={_('cockpit-pinger-patternfly', 'Start a ping to check connectivity.')} />;
         }
     };
 
     return (
         <Page className="pf-m-no-sidebar" isContentFilled>
             <Card>
-                <CardTitle>Pinger Patternfly</CardTitle>
+                <CardTitle>{_('cockpit-pinger-patternfly', 'Pinger Patternfly')}</CardTitle>
                 <CardBody>
                     <PageSection>
-                        <p>Check connectivity between two devices by pinging.</p>
+                        <p>{_('cockpit-pinger-patternfly', 'Check connectivity between two devices by pinging.')}</p>
                     </PageSection>
                     <PageSection>
                         <Toolbar>
@@ -64,7 +65,7 @@ export const Application = () => {
                                     <TextInput label='Ping to' isRequired value={host} onChange={handleHostChange} />
                                 </ToolbarItem>
                                 <ToolbarItem>
-                                    <Button disabled={!(status === 'idle')} onClick={startPing}>Ping</Button>
+                                    <Button disabled={!(status === 'idle')} onClick={startPing}>{_('cockpit-pinger-patternfly', 'Ping') }</Button>
                                 </ToolbarItem>
                             </ToolbarContent>
                         </Toolbar>
