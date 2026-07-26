@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@patternfly/patternfly": "^6.6.0",
     "@patternfly/react-core": "^6.6.0",
+    "@patternfly/react-icons": "^6.6.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
