@@ -1,0 +1,9 @@
+{
+	"version": 0,
+	"tools": {
+		"pinger-patternfly": {
+			"label": "Pinger Patternfly",
+			"path": "index.html"
+		}
+	}
+}
