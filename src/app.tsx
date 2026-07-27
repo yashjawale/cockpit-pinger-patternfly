@@ -40,23 +40,23 @@ export const Application = () => {
     const renderAlert = () => {
         switch (status) {
         case 'success':
-            return <Alert variant='success' title={_('cockpit-pinger-patternfly', 'Success! You can view more information below.')} />;
+            return <Alert variant='success' title={_('Success! You can view more information below.')} />;
         case 'fail':
-            return <Alert variant='danger' title={_('cockpit-pinger-patternfly', 'Ping failed. Check the logs below for more details.')} />;
+            return <Alert variant='danger' title={_('Ping failed. Check the logs below for more details.')} />;
         case 'progress':
-            return <Alert customIcon={<GlobeIcon />} variant='custom' title={_('cockpit-pinger-patternfly', 'Pinging...')} />;
+            return <Alert customIcon={<GlobeIcon />} variant='custom' title={_('Pinging...')} />;
         default:
-            return <Alert variant='info' title={_('cockpit-pinger-patternfly', 'Start a ping to check connectivity.')} />;
+            return <Alert variant='info' title={_('Start a ping to check connectivity.')} />;
         }
     };
 
     return (
         <Page className="pf-m-no-sidebar" isContentFilled>
             <Card>
-                <CardTitle>{_('cockpit-pinger-patternfly', 'Pinger Patternfly')}</CardTitle>
+                <CardTitle>{_('Pinger Patternfly')}</CardTitle>
                 <CardBody>
                     <PageSection>
-                        <p>{_('cockpit-pinger-patternfly', 'Check connectivity between two devices by pinging.')}</p>
+                        <p>{_('Check connectivity between two devices by pinging.')}</p>
                     </PageSection>
                     <PageSection>
                         <Toolbar>
@@ -65,7 +65,7 @@ export const Application = () => {
                                     <TextInput label='Ping to' isRequired value={host} onChange={handleHostChange} />
                                 </ToolbarItem>
                                 <ToolbarItem>
-                                    <Button disabled={!(status === 'idle')} onClick={startPing}>{_('cockpit-pinger-patternfly', 'Ping') }</Button>
+                                    <Button disabled={!(status === 'idle')} onClick={startPing}>{_('Ping') }</Button>
                                 </ToolbarItem>
                             </ToolbarContent>
                         </Toolbar>
